@@ -1,4 +1,3 @@
-from email.policy import default
 from library.films import Films
 from library.friends import Friends
 from library.friend import Friend
@@ -6,7 +5,6 @@ from pprint import pprint
 import library.data as data
 
 class App:
-    
     menu_options = {
         1: 'Display films',
         2: 'Display friends',
