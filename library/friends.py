@@ -1,9 +1,9 @@
 from library.friends_loader import FriendsLoader
-from pprint import pprint
 
-class Friends(FriendsLoader):
-    def __init__(self, storage):
-        self.friends = super().load(storage)
+class Friends():
+    def __init__(self, friends_loader):
+        if isinstance(friends_loader, FriendsLoader):
+            self.friends = friends_loader.load()
         
     def find(self, index):
         return self.friends[index]

@@ -1,12 +1,11 @@
-from abc import ABC
 from library.film import Film
 import library.data as data
 
-class FilmsLoader(ABC):
-    def load(self, storage):
+class FilmsLoader:
+    def load(self):
         films = []
         if len(data.storage_films) != 0:
-            for item in storage:
+            for item in data.storage_films:
                 title = item[0][:-6].strip()
                 created_at =  item[0][-5:-1]
                 place =  self.search_borrower_by(title)

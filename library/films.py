@@ -3,9 +3,10 @@ from library.film import Film
 from operator import attrgetter
 import random
 
-class Films(FilmsLoader):
-    def __init__(self, storage):
-        self.films = super().load(storage)
+class Films():
+    def __init__(self, films_loader):
+        if isinstance(films_loader, FilmsLoader):
+            self.films = films_loader.load()
 
     def add_film(self, film):
         if isinstance(film, Film):
@@ -28,4 +29,3 @@ class Films(FilmsLoader):
    
     def get_films(self):
         return self.films
-    
