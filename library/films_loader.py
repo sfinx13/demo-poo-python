@@ -1,6 +1,7 @@
 from library.film import Film
 import library.data as data
 
+
 class FilmsLoader:
     def load(self):
         films = []

@@ -4,10 +4,10 @@ from library.friends import Friends
 from library.films import Films
 from library.friend import Friend
 import library.data as data
-
 from pprint import pprint
 
-class App:    
+
+class App:
     def __init__(self):
         self.title = "🎬 Welcome, please choose an option 🎬"
         self.films = Films(FilmsLoader())
@@ -37,7 +37,7 @@ class App:
         except KeyError:
             print("🔴 Please enter a valid key menu item 🔴")
             print("******************************************")
-        
+
         match option:
             case 1:
                 pprint(self.films.get_films())

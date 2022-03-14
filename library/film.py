@@ -7,6 +7,6 @@ class Film():
 
     def __str__(self):
         return f"{self.title}"
-        
+
     def __repr__(self):
         return f"{str(self.created_at), self.title, self.place , self.type}"
