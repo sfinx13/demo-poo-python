@@ -26,9 +26,9 @@ class Films():
     def get_borrowed_films(self, friend=""):
         if not friend:
             return list(
-                    filter(lambda film: film.place != 'Library', self.films)
+                    filter(lambda film: film._place != 'Library', self.films)
                 )
-        return list(filter(lambda film: film.place == friend, self.films))
+        return list(filter(lambda film: film._place == friend, self.films))
 
     def get_films(self):
         return self.films
