@@ -6,6 +6,7 @@ from library.friend import Friend
 import library.data as data
 from pprint import pprint
 
+SEPARATOR = "*"
 
 class App:
     def __init__(self):
@@ -25,7 +26,7 @@ class App:
 
     def show_options(self):
         print("🟢 Welcome, please choose an option 🟢")
-        print("******************************************")
+        print(SEPARATOR * 40)
         for key in self.menu_options:
             print(f"👉 [{key}] - {self.menu_options[key]}")
 
@@ -33,10 +34,10 @@ class App:
         try:
             self.title = self.menu_options[option]
             print(f"🟢 {self.title} 🟢")
-            print("******************************************")
+            print(SEPARATOR * 40)
         except KeyError:
             print("🔴 Please enter a valid key menu item 🔴")
-            print("******************************************")
+            print(SEPARATOR * 40)
 
         match option:
             case 1:
