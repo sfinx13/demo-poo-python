@@ -31,7 +31,7 @@ class Film():
     ...
     ValueError: Content tyde does not exist
     """
-    def __init__(self, title, created_at, place, type):
+    def __init__(self, title = '', created_at = '', place = '', type = ''):
         self._title = title
         self._created_at = int(created_at)
         self._place = place
@@ -55,16 +55,9 @@ class Film():
             raise ValueError("Film title is too short")
 
     @property
-    def type(self):
-        return self._type
+    def place(self):
+        return self._place
     
-    @type.setter
-    def type(self, type):
-        if type in list(ContentType):
-            self._type = type
-        else:
-            raise ValueError("Content tyde does not exist")
-
     @property
     def created_at(self):
         return self._created_at
@@ -76,6 +69,17 @@ class Film():
         else:
             raise ValueError("We do not sell movies released before 1950")
 
+    @property
+    def type(self):
+        return self._type
+    
+    @type.setter
+    def type(self, type):
+        if type in list(ContentType):
+            self._type = type
+        else:
+            raise ValueError("Content tyde does not exist")
+
 if __name__ == '__main__':
     import doctest
-    doctest.testmod()
+    doctest.testmod(verbose=True)
