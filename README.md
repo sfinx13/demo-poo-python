@@ -16,8 +16,21 @@ docker build -t demo-poo-python .
 docker run -it demo-poo-python
 ```
 
+## Tests
+### unittest
+```
+python -m unitest -v
+```
+
+### doctest
+```
+python -m doctest -v library/*.py
+```
+
 ## Documentation
 * https://docs.python.org/3/tutorial/classes.html
 * https://docs.python.org/3/library/abc.html
 * https://docs.python.org/fr/3/tutorial/modules.html
+* https://docs.python.org/3/library/unittest.html
+* https://docs.python.org/3/library/doctest.html?highlight=doctest#module-doctest
 
