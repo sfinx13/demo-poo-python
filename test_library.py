@@ -53,16 +53,30 @@ class TestLoader(unittest.TestCase):
         self.assertEqual(len(friends), len(storage_friends))
         self.assertTrue(all(isinstance(friend, Friend) for friend in friends))
         self.assertEqual('Paul', friends[0].firstname)
+    
+    def test_borrower_is_found(self):
+        self.assertTrue('Paul', FriendsLoader.search_borrower_by('Blade Runner'))
+        self.assertTrue('Lucie', FriendsLoader.search_borrower_by('Boyz n the Hood'))
+        self.assertTrue('Zoé', FriendsLoader.search_borrower_by('Terminator 2 : Le Jugement dernier'))
 
 
 class TestCollection(unittest.TestCase):
-    def test_film_is_added(self):
-        films = Films(FilmsLoader())
-        nb_films = len(films.get_films())
-        film = Film("Terminator 3", "2013", "John", "DVD")
-        films.add_film(film)
-        self.assertEqual(len(films.get_films()), nb_films + 1)
+    def setUp(self):
+        self.films = Films(FilmsLoader())
+        self.friends = Friends(FriendsLoader())
 
-    def test_friends_is_finded(self):
-        friends = Friends(FriendsLoader())
-        self.assertIsInstance(friends.find(0), Friend)
+    def test_film_is_added(self):
+        nb_films = len(self.films.get_films())
+        film = Film("Terminator 3", "2013", "John", "DVD")
+        self.films.add_film(film)
+        self.assertEqual(len(self.films.get_films()), nb_films + 1)
+
+    def test_films_collection_is_equal_storage(self):
+        self.assertEqual(len(self.films.get_films()), len(storage_films))
+
+    def test_friends_founded(self):
+       
+        self.assertIsInstance(self.friends.find(0), Friend)
+    
+    def test_random_film_is_instance_film(self):
+        self.assertIsInstance(self.films.pick_random_film(), Film)
