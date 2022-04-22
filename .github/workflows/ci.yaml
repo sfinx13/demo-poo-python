@@ -25,11 +25,13 @@ jobs:
        pip install -r requirements.txt
 
    - name: Lint with Flake8
-     run: | 
-     flake8 .
+     run: |
+       flake8 .
    
    - name: Run Tests unitest
-     run: python -m unitest -v
+     run: | 
+       python -m unitest -v
 
    - name: Run Doctest
-     run: python -m doctest -v library/*.py
+     run: | 
+       python -m doctest -v library/*.py
