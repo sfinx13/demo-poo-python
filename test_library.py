@@ -40,12 +40,16 @@ class TestModel(unittest.TestCase):
 
 
 class TestLoader(unittest.TestCase):
+    TERMINATOR = 'Terminator 2 : Le Jugement dernier'
+    BLADE_RUNNER = 'Blade Runner'
+    BOYZ_N_HOOD = 'Boyz n the Hood'
+
     def test_film_is_loaded(self):
         film_loader = FilmsLoader()
         films = film_loader.load()
         self.assertEqual(len(films), len(storage_films))
         self.assertTrue(all(isinstance(film, Film) for film in films))
-        self.assertEqual('Terminator 2 : Le Jugement dernier', films[9].title)
+        self.assertEqual(self.TERMINATOR, films[9].title)
 
     def test_friend_is_loaded(self):
         friend_loader = FriendsLoader()
@@ -53,11 +57,20 @@ class TestLoader(unittest.TestCase):
         self.assertEqual(len(friends), len(storage_friends))
         self.assertTrue(all(isinstance(friend, Friend) for friend in friends))
         self.assertEqual('Paul', friends[0].firstname)
-    
+
     def test_borrower_is_found(self):
-        self.assertTrue('Paul', FriendsLoader.search_borrower_by('Blade Runner'))
-        self.assertTrue('Lucie', FriendsLoader.search_borrower_by('Boyz n the Hood'))
-        self.assertTrue('Zoé', FriendsLoader.search_borrower_by('Terminator 2 : Le Jugement dernier'))
+        self.assertTrue(
+            'Paul',
+            FriendsLoader.search_borrower_by(self.BLADE_RUNNER)
+        )
+        self.assertTrue(
+            'Lucie',
+            FriendsLoader.search_borrower_by(self.BOYZ_N_HOOD)
+        )
+        self.assertTrue(
+            'Zoé',
+            FriendsLoader.search_borrower_by(self.TERMINATOR)
+        )
 
 
 class TestCollection(unittest.TestCase):
@@ -75,8 +88,7 @@ class TestCollection(unittest.TestCase):
         self.assertEqual(len(self.films.get_films()), len(storage_films))
 
     def test_friends_founded(self):
-       
         self.assertIsInstance(self.friends.find(0), Friend)
-    
+
     def test_random_film_is_instance_film(self):
         self.assertIsInstance(self.films.pick_random_film(), Film)

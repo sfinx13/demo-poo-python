@@ -7,7 +7,7 @@ class ContentType(Enum):
 
 
 class Film():
-    """ 
+    """
     >>> film = Film("Terminator 2", "1991", "John", "DVD")
     >>> print(film)
     Terminator 2
@@ -22,16 +22,16 @@ class Film():
     >>> film.title = "Titanic"
     >>> film.title
     'Titanic'
-    >>> film.title = "R" 
+    >>> film.title = "R"
     Traceback (most recent call last):
     ...
     ValueError: Film title is too short
-    >>> film.type = "VVV" 
+    >>> film.type = "VVV"
     Traceback (most recent call last):
     ...
     ValueError: Content tyde does not exist
     """
-    def __init__(self, title = '', created_at = '', place = '', type = ''):
+    def __init__(self, title='', created_at='', place='', type=''):
         self._title = title
         self._created_at = int(created_at)
         self._place = place
@@ -41,12 +41,16 @@ class Film():
         return f"{self._title}"
 
     def __repr__(self):
-        return f"{str(self._created_at), self._title, self._place , self._type}"
+        return f'''{
+            str(self._created_at),
+            self._title,
+            self._place,
+            self._type}'''
 
     @property
     def title(self):
         return self._title
-    
+
     @title.setter
     def title(self, title):
         if len(title) > 1:
@@ -57,7 +61,7 @@ class Film():
     @property
     def place(self):
         return self._place
-    
+
     @property
     def created_at(self):
         return self._created_at
@@ -72,13 +76,14 @@ class Film():
     @property
     def type(self):
         return self._type
-    
+
     @type.setter
     def type(self, type):
         if type in list(ContentType):
             self._type = type
         else:
             raise ValueError("Content tyde does not exist")
+
 
 if __name__ == '__main__':
     import doctest

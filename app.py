@@ -2,11 +2,10 @@ from library.friends_loader import FriendsLoader
 from library.films_loader import FilmsLoader
 from library.friends import Friends
 from library.films import Films
-from library.friend import Friend
-import library.data as data
 from pprint import pprint
 
 SEPARATOR = "*"
+
 
 class App:
     def __init__(self):
