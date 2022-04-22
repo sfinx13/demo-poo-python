@@ -30,7 +30,7 @@ jobs:
    
    - name: Run Tests unitest
      run: | 
-       python -m unitest -v
+       python -m unittest -v
 
    - name: Run Doctest
      run: | 

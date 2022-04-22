@@ -19,7 +19,7 @@ docker run -it demo-poo-python
 ## Tests
 ### unittest
 ```
-python -m unitest -v
+python -m unittest -v
 ```
 
 ### doctest
