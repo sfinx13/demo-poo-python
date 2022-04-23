@@ -1,3 +1,5 @@
+[![CI](https://github.com/sfinx13/demo-poo-python/actions/workflows/ci.yaml/badge.svg)](https://github.com/sfinx13/demo-poo-python/actions/workflows/ci.yaml)
+
 # Simple demo POO python
 
 ## Presentation
